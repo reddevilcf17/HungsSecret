@@ -22,7 +22,7 @@
             <h4 class="card-header"><%= article.title %><span class="text-muted small pull-xs-right"><h6><%= article.impressionist_count %> view(s)</h6></span></h4>
             
             <div class="card-block">
-              <p class="card-text"><%= @markdown.render(article.body[0..30].gsub(/\s\w+\s*$/,'...')).html_safe %></p> 
+              <p class="card-text"><%= @markdown.render(article.body).html_safe %></p> 
               <hr/>
               <p class="card-text"><small class="text-muted">Last updated at <%= article.updated_at %></small>
               </p>

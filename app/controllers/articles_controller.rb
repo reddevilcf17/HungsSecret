@@ -12,6 +12,9 @@ class ArticlesController < ApplicationController
     else
       @articles = Article.all
     end
+    @articles.each do |a|
+      a.body = a.body[0..30].gsub(/\s\w+\s*$/,'...')
+    end
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
@@ -25,9 +28,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    p "begin new"
     @article = Article.new
-    p "end new"
   end
 
   # GET /articles/1/edit
