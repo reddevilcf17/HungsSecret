@@ -6,7 +6,7 @@ Submitted by: **Nguyen Thanh Hung**
 
 Time spent: **16** hours spent in total
 
-URL: **Insert your Heroku URL here**
+URL: **https://hungsscret.herokuapp.com/**
 
 ## User Stories
 
