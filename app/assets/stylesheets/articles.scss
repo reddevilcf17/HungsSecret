@@ -1,0 +1,18 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+    background-color:transparent !important; 
+    border : 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding-top: 1rem;
+}
+
+.card-block {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+}
+
+.article-form > .card {
+	border: none !important;
+}

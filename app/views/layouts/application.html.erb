@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HungsSecret</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-light bg-faded">
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header">
+          &#9776;
+        </button>
+        <div class="collapse navbar-toggleable-xs" id="navbar-header">
+          <ul class="nav navbar-nav">
+            <li class="nav-item active">
+              <%= link_to root_path, :class => 'nav-link' do %>
+                Home <span class="sr-only">(current)</span>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:3000/articles/23">About</a>
+            </li>
+          </ul>
+          <%= form_tag articles_path, :method => 'get', :class => 'form-inline pull-xs-right' do %>
+            <div class="form-group">        
+              <%= text_field_tag :search, params[:search], class:'form-control', placeholder:'Article\'s title', type:'text' %>
+              <%= submit_tag("Search", :class=>"btn btn-primary") %>
+            </div>    
+          <% end %>
+        </div>
+      </nav> <!-- /navbar -->
+      
+      <%= yield %>
+    </div>
+  </body>
+</html>

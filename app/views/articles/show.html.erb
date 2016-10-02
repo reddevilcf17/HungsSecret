@@ -1,0 +1,55 @@
+<p id="notice">
+	<div class="text-success">
+		<%= notice %>	
+	</div>	
+</p>
+
+
+<div class="card-block">
+<h4 class="card-title"><%= @article.title %></h4>
+<h6 class="card-subtitle text-muted"><p class="card-text"><small class="text-muted">Last updated at <%= @article.updated_at %></small>
+    </p>
+</h6>
+
+<hr/>
+</div>
+
+<div class="card-block">
+	<p class="card-text"><%= @markdown.render(@article.body).html_safe %></p>
+	<hr/>
+	<div class="row">
+		<div class="col-sm-6">
+			Tags: <%= @markdown.render(tag_links(@article.all_tags)).html_safe %>
+		</div>
+	</div>
+	<div class="row container">		
+		<div class="list-group jumbotron">
+			<div class="container">
+				<h5>Comments (<%= @article.comments.count %>)</h5>
+				<br/>
+				<% @article.comments.each do |comment| %>
+					<h6 class="list-group-item-heading"><%= comment.name %></h6>
+		    		<p class="list-group-item-text text-muted small"><%= comment.body %></p>
+		    		<hr/>
+				<% end %>
+				<br/>
+				<br/>
+				Leave a comment:
+				<div class="row">
+					<div class="col-sm-6">
+						<%= render 'comments/form' %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br/>
+
+	<%= link_to 'Edit', edit_article_path(@article), :class => 'card-link' %>
+	<%= link_to 'Back', articles_path, :class => 'card-link' %>
+	<br/>
+	<br/>
+
+</div>
+

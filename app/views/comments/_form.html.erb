@@ -1,0 +1,11 @@
+<%= form_for([@article, @article.comments.build]) do |f| %>
+	<div class="form-group ">
+	    <%= f.text_field :name, class:'form-control', placeholder:'Type your name', type:'text' %>	    	
+  	</div>
+  	<div class="form-group">
+	    <%= f.text_area :body, class:'form-control', placeholder:'What do you think about the article?', type:'text' %>
+  	</div>
+
+	<%= submit_tag("Post comment", :class=>"btn btn-primary") %>
+
+<% end %>

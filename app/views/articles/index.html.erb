@@ -1,0 +1,50 @@
+<p id="notice">
+  <div class="text-success">
+    <%= notice %> 
+  </div>  
+</p>
+
+<div class="jumbotron">
+  <h1>Howdy, Hung!</h1>
+  <h3>What do you wanna write for today?</h3>
+  <br>
+  <%= link_to new_article_path, :class => 'btn btn-outline-success' do %>
+    New Article
+  <% end %>
+  <br>
+  <br>
+  
+  <div class="row">
+    <div class="col-sm-8">
+      <% @articles.each do |article| %>
+        
+          <div class="card">          
+            <h4 class="card-header"><%= article.title %><span class="text-muted small pull-xs-right"><h6><%= article.impressionist_count %> view(s)</h6></span></h4>
+            
+            <div class="card-block">
+              <p class="card-text"><%= @markdown.render(article.body).html_safe %></p> 
+              <hr/>
+              <p class="card-text"><small class="text-muted">Last updated at <%= article.updated_at %></small>
+              </p>
+
+            </div>
+            <div class="card-footer">
+              <%= link_to article, :class => 'card-link' do %>
+                Show
+              <% end %>
+              <%= link_to edit_article_path(article), :class => 'card-link' do %>
+                Edit
+              <% end %>
+              <%= link_to article, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'card-link' do %>
+                Delete
+              <% end %> 
+            </div>
+          </div>
+         
+      <% end %>
+    </div>   
+  </div>
+</div>
+
+
+
